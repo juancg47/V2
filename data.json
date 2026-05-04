@@ -1,0 +1,240 @@
+{
+  "tabs": [
+    {
+      "id": "general",
+      "label": "General",
+      "color": "#6C63FF",
+      "tree": {
+        "id": "gerencia",
+        "name": "Gerencia",
+        "role": "Máxima autoridad de la organización. Responsable de la dirección estratégica, toma de decisiones y representación legal de la empresa.",
+        "icon": "img/gerencia.png",
+        "color": "#6C63FF",
+        "children": [
+          {
+            "id": "almacen",
+            "name": "Almacén",
+            "role": "Gestión y control del inventario de materiales, herramientas y equipos. Responsable del despacho y recepción de insumos operativos.",
+            "icon": "img/almacen.png",
+            "color": "#FF6584",
+            "children": []
+          },
+          {
+            "id": "administracion",
+            "name": "Administración",
+            "role": "Gestión administrativa y financiera de la empresa. Manejo de nómina, contabilidad, facturación y relaciones con proveedores.",
+            "icon": "img/administracion.png",
+            "color": "#43B89C",
+            "children": [
+              {
+                "id": "coordinacion",
+                "name": "Coordinación",
+                "role": "Planificación y supervisión de las operaciones diarias. Coordinación de cuadrillas, asignación de rutas y control de cumplimiento.",
+                "icon": "img/coordinacion.png",
+                "color": "#F7B731",
+                "children": [
+                  {
+                    "id": "cuadrilla1",
+                    "name": "Cuadrilla 1",
+                    "role": "Equipo operativo de campo. Ejecuta labores de instalación, mantenimiento o servicio en las rutas asignadas.",
+                    "icon": "img/cuadrilla.png",
+                    "color": "#FC5C65",
+                    "children": [
+                      {
+                        "id": "vehiculo1",
+                        "name": "Vehículo",
+                        "role": "Unidad de transporte asignada a la Cuadrilla 1 para el traslado de personal y materiales.",
+                        "icon": "img/vehiculo.png",
+                        "color": "#778CA3",
+                        "children": [
+                          { "id": "c1m1", "name": "Moto 1", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 1.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c1m2", "name": "Moto 2", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 1.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c1m3", "name": "Moto 3", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 1.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c1m4", "name": "Moto 4", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 1.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "cuadrilla2",
+                    "name": "Cuadrilla 2",
+                    "role": "Equipo operativo de campo. Ejecuta labores de instalación, mantenimiento o servicio en las rutas asignadas.",
+                    "icon": "img/cuadrilla.png",
+                    "color": "#FC5C65",
+                    "children": [
+                      {
+                        "id": "vehiculo2",
+                        "name": "Vehículo",
+                        "role": "Unidad de transporte asignada a la Cuadrilla 2 para el traslado de personal y materiales.",
+                        "icon": "img/vehiculo.png",
+                        "color": "#778CA3",
+                        "children": [
+                          { "id": "c2m1", "name": "Moto 1", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 2.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c2m2", "name": "Moto 2", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 2.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c2m3", "name": "Moto 3", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 2.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c2m4", "name": "Moto 4", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 2.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "cuadrilla3",
+                    "name": "Cuadrilla 3",
+                    "role": "Equipo operativo de campo. Ejecuta labores de instalación, mantenimiento o servicio en las rutas asignadas.",
+                    "icon": "img/cuadrilla.png",
+                    "color": "#FC5C65",
+                    "children": [
+                      {
+                        "id": "vehiculo3",
+                        "name": "Vehículo",
+                        "role": "Unidad de transporte asignada a la Cuadrilla 3 para el traslado de personal y materiales.",
+                        "icon": "img/vehiculo.png",
+                        "color": "#778CA3",
+                        "children": [
+                          { "id": "c3m1", "name": "Moto 1", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 3.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c3m2", "name": "Moto 2", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 3.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c3m3", "name": "Moto 3", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 3.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] },
+                          { "id": "c3m4", "name": "Moto 4", "role": "Motocicleta de apoyo logístico y mensajería para la Cuadrilla 3.", "icon": "img/moto.png", "color": "#A55EEA", "children": [] }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hseq",
+            "name": "HSEQ",
+            "role": "Gestión de Salud, Seguridad, Medio Ambiente y Calidad. Asegura el cumplimiento de normas legales, prevención de riesgos y mejora continua.",
+            "icon": "img/hseq.png",
+            "color": "#26de81",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "almacen",
+      "label": "Almacén",
+      "color": "#FF6584",
+      "tree": {
+        "id": "almacen_root",
+        "name": "Almacén",
+        "role": "Gestión y control del inventario de materiales, herramientas y equipos. Responsable del despacho y recepción de insumos operativos.",
+        "icon": "img/almacen.png",
+        "color": "#FF6584",
+        "children": [
+          {
+            "id": "recepcion",
+            "name": "Recepción de Materiales",
+            "role": "Responsable de recibir, verificar y registrar todos los materiales e insumos que ingresan al almacén.",
+            "icon": "img/almacen.png",
+            "color": "#FC5C65",
+            "children": []
+          },
+          {
+            "id": "despacho",
+            "name": "Despacho",
+            "role": "Responsable de preparar y entregar los materiales solicitados por las cuadrillas y demás áreas operativas.",
+            "icon": "img/almacen.png",
+            "color": "#fd9644",
+            "children": []
+          },
+          {
+            "id": "inventario",
+            "name": "Control de Inventario",
+            "role": "Mantiene actualizado el registro de existencias, realiza conteos periódicos y genera reportes de stock.",
+            "icon": "img/almacen.png",
+            "color": "#45aaf2",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "aprovisionamiento",
+      "label": "Aprovisionamiento",
+      "color": "#43B89C",
+      "tree": {
+        "id": "aprov_root",
+        "name": "Aprovisionamiento",
+        "role": "Área encargada de garantizar el suministro oportuno de materiales, equipos y servicios necesarios para la operación.",
+        "icon": "img/administracion.png",
+        "color": "#43B89C",
+        "children": [
+          {
+            "id": "compras",
+            "name": "Compras",
+            "role": "Gestiona las órdenes de compra, negociación con proveedores y seguimiento de pedidos para satisfacer las necesidades operativas.",
+            "icon": "img/administracion.png",
+            "color": "#26de81",
+            "children": []
+          },
+          {
+            "id": "proveedores",
+            "name": "Gestión de Proveedores",
+            "role": "Evalúa, homologa y mantiene relaciones estratégicas con los proveedores de la organización.",
+            "icon": "img/administracion.png",
+            "color": "#F7B731",
+            "children": []
+          },
+          {
+            "id": "logistica",
+            "name": "Logística",
+            "role": "Planifica y coordina el transporte y distribución de materiales desde los proveedores hasta los puntos de operación.",
+            "icon": "img/vehiculo.png",
+            "color": "#778CA3",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "sst",
+      "label": "SST",
+      "color": "#26de81",
+      "tree": {
+        "id": "sst_root",
+        "name": "SST / HSEQ",
+        "role": "Sistema de Gestión de Seguridad y Salud en el Trabajo. Promueve ambientes laborales seguros y el bienestar integral de los trabajadores.",
+        "icon": "img/hseq.png",
+        "color": "#26de81",
+        "children": [
+          {
+            "id": "prevencion",
+            "name": "Prevención de Riesgos",
+            "role": "Identifica, evalúa y controla los riesgos laborales presentes en cada proceso y actividad de la empresa.",
+            "icon": "img/hseq.png",
+            "color": "#45aaf2",
+            "children": []
+          },
+          {
+            "id": "capacitacion",
+            "name": "Capacitación SST",
+            "role": "Diseña e implementa programas de formación en seguridad, salud y manejo ambiental para todo el personal.",
+            "icon": "img/hseq.png",
+            "color": "#fd9644",
+            "children": []
+          },
+          {
+            "id": "calidad",
+            "name": "Gestión de Calidad",
+            "role": "Asegura el cumplimiento de los estándares de calidad en los procesos, productos y servicios de la organización.",
+            "icon": "img/hseq.png",
+            "color": "#FC5C65",
+            "children": []
+          },
+          {
+            "id": "medioambiente",
+            "name": "Medio Ambiente",
+            "role": "Gestiona el impacto ambiental de las operaciones, promueve prácticas sostenibles y asegura el cumplimiento normativo ambiental.",
+            "icon": "img/hseq.png",
+            "color": "#a55eea",
+            "children": []
+          }
+        ]
+      }
+    }
+  ]
+}

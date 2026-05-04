@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organigrama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <!--<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0e17;
+      --surface: #1a1828;
+      --surface2: #231f35;
+      --border: rgba(255,255,255,0.08);
+      --text: #fffffe;
+      --text-muted: #a7a5b5;
+      --accent: #6C63FF;
+      --radius: 14px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+      flex-shrink: 0;
+      z-index: 10;
+      position: relative;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #6C63FF, #FF6584, #26de81);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+    }
+    .logo span { font-weight: 600; opacity: 0.7; }
+
+    /* ── Tab nav ── */
+    #tab-nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover { background: var(--surface2); color: var(--text); }
+    .tab-btn.active {
+      background: var(--tab-color, var(--accent));
+      border-color: transparent;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 0 18px color-mix(in srgb, var(--tab-color, var(--accent)) 50%, transparent);
+    }
+    .tab-indicator {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.7;
+    }
+    .tab-btn.active .tab-indicator { opacity: 1; }
+
+    /* ── Zoom controls ── */
+    .zoom-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 4px 10px;
+    }
+    .zoom-controls button {
+      width: 28px; height: 28px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+    .zoom-controls button:hover { background: var(--border); color: var(--text); }
+    #zoom-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      min-width: 36px;
+      text-align: center;
+    }
+
+    /* ── Main layout ── */
+    .app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* ── Canvas ── */
+    #tree-canvas {
+      flex: 1;
+      overflow: hidden;
+      cursor: grab;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(108,99,255,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(255,101,132,0.06) 0%, transparent 60%),
+        var(--bg);
+    }
+    #tree-canvas:active { cursor: grabbing; }
+
+    .tree-wrapper {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      transform-origin: top center;
+      width: max-content;
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      transition: none;
+      will-change: transform;
+    }
+
+    /* ── Node structure ── */
+    .node-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .node-box {
+      position: relative;
+      background: var(--surface);
+      border: 2px solid color-mix(in srgb, var(--node-color) 40%, transparent);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      min-width: 130px;
+      max-width: 160px;
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 0 0 var(--node-color);
+      user-select: none;
+    }
+    .node-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: calc(var(--radius) - 1px);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--node-color) 15%, transparent), transparent 70%);
+      pointer-events: none;
+    }
+    .node-box:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.4), 0 0 0 3px color-mix(in srgb, var(--node-color) 35%, transparent);
+      border-color: var(--node-color);
+    }
+    .node-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .node-icon-wrap {
+      width: 40px; height: 40px;
+      background: color-mix(in srgb, var(--node-color) 18%, transparent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .node-icon {
+      width: 28px; height: 28px;
+      object-fit: contain;
+    }
+    .node-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .toggle-btn {
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--node-color);
+      background: var(--bg);
+      color: var(--node-color);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+      transition: background 0.15s, color 0.15s;
+      line-height: 1;
+    }
+    .toggle-btn:hover { background: var(--node-color); color: #fff; }
+
+    /* ── Connectors ── */
+    .connector-down {
+      width: 2px;
+      height: 28px;
+      background: var(--border);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      flex-shrink: 0;
+      margin-top: 12px;
+    }
+    .children-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      position: relative;
+    }
+    /* Horizontal line across children */
+    .children-row::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: calc(50% / var(--child-count, 1));
+      right: calc(50% / var(--child-count, 1));
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+    }
+    .child-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 12px;
+    }
+    .connector-up {
+      width: 2px;
+      height: 28px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.15));
+      flex-shrink: 0;
+    }
+
+    /* ── Modal ── */
+    #modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    #modal.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-card {
+      background: var(--surface);
+      border-radius: 20px;
+      width: min(460px, 92vw);
+      overflow: hidden;
+      box-shadow: var(--shadow), 0 0 0 1px var(--border);
+      transform: scale(0.95);
+      transition: transform 0.2s;
+    }
+    #modal.open .modal-card { transform: scale(1); }
+    #modal-color-bar {
+      height: 6px;
+      width: 100%;
+    }
+    .modal-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+    #modal-icon {
+      width: 64px; height: 64px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: var(--surface2);
+      padding: 8px;
+    }
+    #modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    #modal-role {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 360px;
+    }
+    #modal-close {
+      margin-top: 8px;
+      padding: 10px 32px;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    #modal-close:hover { background: var(--surface2); color: var(--text); }
+
+    /* ── Hint ── */
+    .hint {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      opacity: 0.5;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  </style>-->
+  <link rel="stylesheet" href="css/formal_style.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo">Org<span>anigrama</span></div>
+    <div id="tab-nav"></div>
+    <div class="zoom-controls">
+      <button id="btn-zoom-in" title="Acercar">＋</button>
+      <span id="zoom-label">100%</span>
+      <button id="btn-zoom-out" title="Alejar">－</button>
+      <button id="btn-reset" title="Restablecer" style="font-size:0.75rem;">⟳</button>
+    </div>
+  </header>
+
+  <div id="tree-canvas">
+    <p class="hint">🖱 Arrastra para mover · Rueda para zoom · Clic en un nodo para más info</p>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <div id="modal-color-bar"></div>
+    <div class="modal-body">
+      <img id="modal-icon" src="" alt="" />
+      <h2 id="modal-title"></h2>
+      <p id="modal-role"></p>
+      <button id="modal-close">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

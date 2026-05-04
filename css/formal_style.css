@@ -1,0 +1,303 @@
+/* formal-style.css - Versión Corregida */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f4f7f9;
+  --surface: #ffffff;
+  --surface2: #e9ecef;
+  --border: #d1d9e6;
+  --text: #2d3436;
+  --text-muted: #636e72;
+  --accent: #2980b9;
+  --radius: 8px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow: hidden;
+}
+
+/* ── Estructura de la App ── */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+  z-index: 10;
+  position: relative;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #1e272e;
+  text-transform: uppercase;
+}
+
+/* ── Canvas y Contenedor del Árbol ── */
+#tree-canvas {
+  flex: 1;
+  overflow: hidden;
+  cursor: grab;
+  position: relative;
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+#tree-canvas:active { cursor: grabbing; }
+
+.tree-wrapper {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  transform-origin: top center;
+  width: max-content;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  will-change: transform;
+}
+
+/* ── Nodos (ESTRUCTURA CRÍTICA) ── */
+.node-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.node-box {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid #c9ced6;
+  border-left: 5px solid var(--node-color); /* Mantiene la diferencia de color */
+  border-radius: 4px;
+  padding: 12px;
+  min-width: 150px;
+  max-width: 180px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow);
+  z-index: 2;
+}
+
+.node-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.node-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ajuste de tamaño de imagen para que no se vea gigante */
+.node-icon-wrap {
+  width: 36px;
+  height: 36px;
+  background: #f1f3f5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.node-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.node-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* ── Conectores ── 
+.connector-down {
+  width: 2px;
+  height: 24px;
+  background: #b2bec3;
+}
+
+.children-row {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.children-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(50% / var(--child-count, 1));
+  right: calc(50% / var(--child-count, 1));
+  height: 2px;
+  background: #b2bec3;
+}
+
+.child-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.connector-up {
+  width: 2px;
+  height: 24px;
+  background: #b2bec3;
+}*/
+
+/* ── Conectores Horizontales Continuos (Versión Final) ── */
+
+.children-row {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 24px; /* Espacio para la línea horizontal */
+}
+
+/* La línea horizontal principal */
+.child-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0 10px;
+  flex: 1;
+}
+
+/* Crear la línea horizontal usando bordes en el contenedor del hijo */
+.child-wrap::before, .child-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 24px; /* Debe coincidir con la altura del conector */
+  border-top: 2px solid #b2bec3; /* Color de la línea */
+}
+
+.child-wrap::before {
+  left: 0;
+}
+
+.child-wrap::after {
+  right: 0;
+}
+
+/* Eliminar la línea sobrante para el primer hijo (izquierda) */
+.child-wrap:first-child::before {
+  border: none;
+}
+
+/* Eliminar la línea sobrante para el último hijo (derecha) */
+.child-wrap:last-child::after {
+  border: none;
+}
+
+/* Si solo hay un hijo, eliminar ambas líneas horizontales */
+.child-wrap:only-child::before, .child-wrap:only-child::after {
+  display: none;
+}
+
+/* Conector vertical que baja del padre */
+.connector-down {
+  width: 2px;
+  height: 24px;
+  background: #b2bec3;
+  margin-bottom: 0; /* Se conecta directo a la children-row */
+}
+
+/* Conector vertical que sube hacia la línea horizontal */
+.connector-up {
+  width: 2px;
+  height: 24px;
+  background: #b2bec3;
+  position: relative;
+}
+
+/* Ajuste adicional para el nodo central si hay varios hijos */
+.children-row::before {
+  display: none; /* Desactivamos la versión anterior para usar la nueva lógica */
+}
+
+/* ── Botones y Tabs ── */
+#tab-nav { display: flex; gap: 8px; }
+
+.tab-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.tab-btn.active {
+  background: var(--tab-color);
+  color: white;
+  border-color: transparent;
+}
+
+.zoom-controls {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.zoom-controls button {
+  width: 30px; height: 30px;
+  border: none; background: none;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+/* ── Modal ── */
+#modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  display: none; /* Se activa por JS */
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+#modal.open { display: flex; }
+
+.modal-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+#modal-icon { width: 60px; height: 60px; margin-bottom: 15px; }
