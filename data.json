@@ -34,6 +34,21 @@
                 "color": "#F7B731",
                 "children": [
                   {
+      "id": "aux_cierres",
+      "name": "Auxiliar de Cierres",
+      "role": "Responsable del cierre administrativo de órdenes y reportes diarios.",
+      "icon": "img/administracion.png",
+      "color": "#4b7bec",
+      "children": []
+    },
+    {
+      "id": "sup_moto",
+      "name": "Supervisor en Moto",
+      "role": "Supervisión itinerante de cuadrillas en campo y verificación de avances.",
+      "icon": "img/moto.png",
+      "color": "#fa8231",
+      "children": [
+{
                     "id": "cuadrilla1",
                     "name": "Cuadrilla 1",
                     "role": "Equipo operativo de campo. Ejecuta labores de instalación, mantenimiento o servicio en las rutas asignadas.",
@@ -99,6 +114,17 @@
                       }
                     ]
                   }
+      ]
+    },
+    {
+      "id": "hseq_campo",
+      "name": "HSEQ Campo",
+      "role": "Asegura el cumplimiento de normas de seguridad directamente en los puntos de operación.",
+      "icon": "img/hseq.png",
+      "color": "#26de81",
+      "children": []
+    }
+                  
                 ]
               }
             ]
