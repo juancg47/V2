@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 function renderTabs() {
   const nav = document.getElementById('tab-nav');
   nav.innerHTML = '';
+
+  // Tabs normales
   data.tabs.forEach((tab, i) => {
     const btn = document.createElement('button');
     btn.className = 'tab-btn' + (i === activeTab ? ' active' : '');
@@ -31,6 +33,9 @@ function renderTabs() {
       activeTab = i;
       collapsedNodes.clear();
       resetTransform();
+      const canvas = document.getElementById('tree-canvas');
+      canvas.style.cursor = 'grab';
+      canvas.style.overflow = 'hidden';
       document.querySelectorAll('.tab-btn').forEach((b, j) => {
         b.classList.toggle('active', j === i);
       });
@@ -38,6 +43,23 @@ function renderTabs() {
     });
     nav.appendChild(btn);
   });
+
+  // Pestaña de presupuesto
+  const budgetBtn = document.createElement('button');
+  budgetBtn.className = 'tab-btn';
+  budgetBtn.style.setProperty('--tab-color', '#2980b9');
+  budgetBtn.innerHTML = `<span class="tab-indicator"></span>&#128176; Presupuesto`;
+  budgetBtn.addEventListener('click', () => {
+    activeTab = -1;
+    collapsedNodes.clear();
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    budgetBtn.classList.add('active');
+    const canvas = document.getElementById('tree-canvas');
+    canvas.style.cursor = 'default';
+    canvas.style.overflow = 'auto';
+    BudgetModule.renderBudgetPanel();
+  });
+  nav.appendChild(budgetBtn);
 }
 
 // ─── Tree ─────────────────────────────────────────────────────────────────────

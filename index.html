@@ -363,11 +363,17 @@
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   </style>-->
   <link rel="stylesheet" href="css/formal_style.css">
+  <link rel="stylesheet" href="css/budget.css">
+  <link rel="stylesheet" href="css/export.css">
+  <!-- Exportacion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
 <div class="app">
   <header>
-    <div class="logo">Org<span>anigrama DR&MR</span></div>
+    <div class="logo">Org<span>anigrama</span></div>
     <div id="tab-nav"></div>
     <div class="zoom-controls">
       <button id="btn-zoom-in" title="Acercar">＋</button>
@@ -395,6 +401,8 @@
   </div>
 </div>
 
+<script src="budget.js"></script>
+<script src="export.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
