@@ -2,7 +2,7 @@
   "tabs": [
     {
       "id": "general",
-      "label": "General",
+      "label": "Cobra",
       "color": "#6C63FF",
       "tree": {
         "id": "gerencia",
