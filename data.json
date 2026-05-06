@@ -141,126 +141,250 @@
       }
     },
     {
-      "id": "almacen",
-      "label": "Almacén",
-      "color": "#FF6584",
-      "tree": {
-        "id": "almacen_root",
-        "name": "Almacén",
-        "role": "Gestión y control del inventario de materiales, herramientas y equipos. Responsable del despacho y recepción de insumos operativos.",
-        "icon": "img/almacen.png",
-        "color": "#FF6584",
-        "children": [
-          {
-            "id": "recepcion",
-            "name": "Recepción de Materiales",
-            "role": "Responsable de recibir, verificar y registrar todos los materiales e insumos que ingresan al almacén.",
-            "icon": "img/almacen.png",
-            "color": "#FC5C65",
-            "children": []
-          },
-          {
-            "id": "despacho",
-            "name": "Despacho",
-            "role": "Responsable de preparar y entregar los materiales solicitados por las cuadrillas y demás áreas operativas.",
-            "icon": "img/almacen.png",
-            "color": "#fd9644",
-            "children": []
-          },
-          {
-            "id": "inventario",
-            "name": "Control de Inventario",
-            "role": "Mantiene actualizado el registro de existencias, realiza conteos periódicos y genera reportes de stock.",
-            "icon": "img/almacen.png",
-            "color": "#45aaf2",
-            "children": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "aprovisionamiento",
-      "label": "Aprovisionamiento",
-      "color": "#43B89C",
-      "tree": {
-        "id": "aprov_root",
-        "name": "Aprovisionamiento",
-        "role": "Área encargada de garantizar el suministro oportuno de materiales, equipos y servicios necesarios para la operación.",
+  "id": "almacen",
+  "label": "Almacén",
+  "color": "#FF6584",
+  "tree": {
+    "id": "dir_general",
+    "name": "DIRECCIÓN GENERAL",
+    "role": "Armando Rojas / Jorge Duran - Dirección estratégica nacional",
+    "icon": "img/gerencia.png",
+    "color": "#6C63FF",
+    "children": [
+      {
+        "id": "jefe_admon",
+        "name": "KATHERIN AYALA",
+        "role": "Jefe Administrativa",
         "icon": "img/administracion.png",
         "color": "#43B89C",
         "children": [
           {
-            "id": "compras",
-            "name": "Compras",
-            "role": "Gestiona las órdenes de compra, negociación con proveedores y seguimiento de pedidos para satisfacer las necesidades operativas.",
-            "icon": "img/administracion.png",
-            "color": "#26de81",
-            "children": []
-          },
-          {
-            "id": "proveedores",
-            "name": "Gestión de Proveedores",
-            "role": "Evalúa, homologa y mantiene relaciones estratégicas con los proveedores de la organización.",
-            "icon": "img/administracion.png",
+            "id": "coord_nacional",
+            "name": "HANYI MILENA PINILLA",
+            "role": "Coordinación Nacional de Almacén",
+            "icon": "img/coordinacion.png",
             "color": "#F7B731",
-            "children": []
-          },
-          {
-            "id": "logistica",
-            "name": "Logística",
-            "role": "Planifica y coordina el transporte y distribución de materiales desde los proveedores hasta los puntos de operación.",
-            "icon": "img/vehiculo.png",
-            "color": "#778CA3",
-            "children": []
+            "children": [
+              {
+                "id": "coord_zona",
+                "name": "COORDINADORES DE ZONA",
+                "role": "Supervisión regional de bodegas",
+                "icon": "img/coordinacion.png",
+                "color": "#778CA3",
+                "children": [
+                  { "id": "bod_pereira", "name": "GREGORIO CORTES", "role": "Bodega Pereira", "icon": "img/almacen.png", "color": "#FF6584", "children": [] },
+                  { "id": "bod_bmanga", "name": "CESAR ZAMBRANO", "role": "Bodega Bucaramanga", "icon": "img/almacen.png", "color": "#FF6584", "children": [] },
+                  { "id": "bod_dorada", "name": "JOSE PEREZ", "role": "Bodega La Dorada", "icon": "img/almacen.png", "color": "#FF6584", "children": [] }
+                ]
+              },
+              {
+                "id": "zona_antioquia",
+                "name": "DIEGO DURAN",
+                "role": "Coordinador Antioquia",
+                "icon": "img/coordinacion.png",
+                "color": "#778CA3",
+                "children": [
+                  { "id": "alm_medellin", "name": "JHOANA AGUDELO", "role": "Almacén Medellín", "icon": "img/almacen.png", "color": "#FF6584", "children": [] }
+                ]
+              },
+              {
+                "id": "zona_norte",
+                "name": "CARLOS ROMERO",
+                "role": "Coordinador Zona Norte",
+                "icon": "img/coordinacion.png",
+                "color": "#778CA3",
+                "children": [
+                  {
+                    "id": "alm_zona_norte",
+                    "name": "JAVIER QUINTERO",
+                    "role": "Almacén Zona Norte",
+                    "icon": "img/almacen.png",
+                    "color": "#FF6584",
+                    "children": [
+                      { "id": "bod_riohacha", "name": "YAIRSINIO GONZALES", "role": "Bodega Riohacha", "icon": "img/almacen.png", "color": "#FC5C65", "children": [] },
+                      { "id": "bod_aguachica", "name": "CRISTIAN RAMIREZ", "role": "Bodega Aguachica", "icon": "img/almacen.png", "color": "#FC5C65", "children": [] },
+                      { "id": "bod_bosconia", "name": "JEISSON RODRIGUEZ", "role": "Bodega Bosconia", "icon": "img/almacen.png", "color": "#FC5C65", "children": [] },
+                      { "id": "bod_curumani", "name": "WALTER ROBLES", "role": "Bodega Curumaní", "icon": "img/almacen.png", "color": "#FC5C65", "children": [] }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
+      },
+      {
+        "id": "alm_ufinet",
+        "name": "RAUL AREVALO",
+        "role": "Almacén Ufinet",
+        "icon": "img/almacen.png",
+        "color": "#FF6584",
+        "children": []
       }
-    },
+    ]
+  }
+},
     {
-      "id": "sst",
-      "label": "SST",
-      "color": "#26de81",
-      "tree": {
-        "id": "sst_root",
-        "name": "SST / HSEQ",
-        "role": "Sistema de Gestión de Seguridad y Salud en el Trabajo. Promueve ambientes laborales seguros y el bienestar integral de los trabajadores.",
-        "icon": "img/hseq.png",
-        "color": "#26de81",
+  "id": "aprovisionamiento",
+  "label": "Aprovisionamiento",
+  "color": "#43B89C",
+  "tree": {
+    "id": "dir_general_aprov",
+    "name": "DIRECCIÓN GENERAL",
+    "role": "Armando Rojas / Jorge Duran",
+    "icon": "img/gerencia.png",
+    "color": "#6C63FF",
+    "children": [
+      {
+        "id": "admon_contabilidad",
+        "name": "ADMINISTRACIÓN Y CONTABILIDAD",
+        "role": "Katherine Ayala (Jefe Admon) / Yolima Santamaria (Revisor)",
+        "icon": "img/administracion.png",
+        "color": "#43B89C",
         "children": [
           {
-            "id": "prevencion",
-            "name": "Prevención de Riesgos",
-            "role": "Identifica, evalúa y controla los riesgos laborales presentes en cada proceso y actividad de la empresa.",
-            "icon": "img/hseq.png",
+            "id": "contadora",
+            "name": "DORIS RODRIGUEZ",
+            "role": "Contadora",
+            "icon": "img/administracion.png",
             "color": "#45aaf2",
-            "children": []
+            "children": [
+              { "id": "aux_admon", "name": "KARIME MARTINEZ", "role": "Auxiliar Administrativa", "icon": "img/administracion.png", "color": "#45aaf2", "children": [] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "coord_operativa",
+        "name": "COORDINACIÓN OPERATIVA",
+        "role": "Hanyi Milena Pinilla (Jefe de Almacén)",
+        "icon": "img/coordinacion.png",
+        "color": "#F7B731",
+        "children": []
+      },
+                {
+            "id": "zona_centro",
+            "name": "DAVID MURILLO",
+            "role": "Coordinador Zona Centro",
+            "icon": "img/coordinacion.png",
+            "color": "#778CA3",
+            "children": [
+              { "id": "c1_centro", "name": "CUADRILLA 1", "role": "Líder: Omar Torres", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] },
+              { "id": "c2_centro", "name": "CUADRILLA 2", "role": "Líder: Ruben Pestana", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] },
+              { "id": "c3_centro", "name": "CUADRILLA 3", "role": "Líder: Mauricio Sanchez", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] }
+            ]
           },
           {
-            "id": "capacitacion",
-            "name": "Capacitación SST",
-            "role": "Diseña e implementa programas de formación en seguridad, salud y manejo ambiental para todo el personal.",
-            "icon": "img/hseq.png",
-            "color": "#fd9644",
-            "children": []
+            "id": "zona_santander",
+            "name": "DIANA BEJARANO",
+            "role": "Coordinadora Santander y Bogotá",
+            "icon": "img/coordinacion.png",
+            "color": "#778CA3",
+            "children": [
+              { "id": "c_santander", "name": "ESTEBAN CARRILLO", "role": "Aux. Ingeniería", "icon": "img/administracion.png", "color": "#FC5C65", "children": [
+                { "id": "c1_santander", "name": "BUCARAMANGA 1", "role": "Líder: Ernesto Moreno QLX086", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] },
+                { "id": "c2_santander", "name": "BUCARAMANGA 29", "role": "Líder: Cesar Quintero KOW003", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] }
+              ] 
+              }
+            ]
           },
           {
-            "id": "calidad",
-            "name": "Gestión de Calidad",
-            "role": "Asegura el cumplimiento de los estándares de calidad en los procesos, productos y servicios de la organización.",
-            "icon": "img/hseq.png",
-            "color": "#FC5C65",
-            "children": []
+            "id": "zona_antioquia_aprov",
+            "name": "DIEGO DURAN",
+            "role": "Coordinador Antioquia",
+            "icon": "img/coordinacion.png",
+            "color": "#778CA3",
+            "children": [
+              { "id": "c_medellin", "name": "WILSON SOTO", "role": "Supervisor", "icon": "img/vehiculo.png", "color": "#FC5C65", "children": [] }
+            ]
           },
           {
-            "id": "medioambiente",
-            "name": "Medio Ambiente",
-            "role": "Gestiona el impacto ambiental de las operaciones, promueve prácticas sostenibles y asegura el cumplimiento normativo ambiental.",
+            "id": "zona_norte_aprov",
+            "name": "CARLOS ROMERO",
+            "role": "Coordinador Zona Norte",
+            "icon": "img/coordinacion.png",
+            "color": "#778CA3",
+            "children": [
+              { "id": "c_norte", "name": "JAVIER QUINTERO", "role": "Almacén Zona Norte", "icon": "img/almacen.png", "color": "#FC5C65", "children": [] }
+            ]
+          }
+    ]
+  }
+},
+    {
+  "id": "sst",
+  "label": "SST",
+  "color": "#26de81",
+  "tree": {
+    "id": "dir_general_sst",
+    "name": "DIRECCIÓN GENERAL",
+    "role": "Armando Rojas / Jorge Duran",
+    "icon": "img/gerencia.png",
+    "color": "#6C63FF",
+    "children": [
+      {
+        "id": "coord_sst_nacional",
+        "name": "CARLOS CARRASCO",
+        "role": "Coordinación SST",
+        "icon": "img/hseq.png",
+        "color": "#F7B731",
+        "children": [
+          {
+            "id": "apoyo_sst",
+            "name": "EQUIPO DE APOYO NACIONAL",
+            "role": "Sustento Normativo y Brigadas",
             "icon": "img/hseq.png",
-            "color": "#a55eea",
-            "children": []
+            "color": "#26de81",
+            "children": [
+              { "id": "sg_sst_ufinet", "name": "ISAURA BETIN", "role": "SG-SST UFINET", "icon": "img/hseq.png", "color": "#45aaf2", "children": [] },
+              { "id": "brigadista", "name": "BRIGADISTA", "role": "Brigadista", "icon": "img/hseq.png", "color": "#eb4d4b", "children": [] },
+              { "id": "sg_sst_general", "name": "RICARDO ROJAS", "role": "SG-SST", "icon": "img/hseq.png", "color": "#45aaf2", "children": [] }
+            ]
+          },
+          {
+            "id": "insp_eje_cafetero",
+            "name": "INSPECTOR SST EJE CAFETERO",
+            "role": "Viviana Moreno",
+            "icon": "img/hseq.png",
+            "color": "#778CA3",
+            "children": [
+              { "id": "alturas_eje", "name": "GREGORIO CORTES", "role": "Coordinador de Alturas", "icon": "img/hseq.png", "color": "#20bf6b", "children": [] }
+            ]
+          },
+          {
+            "id": "insp_medellin",
+            "name": "INSPECTOR SST MEDELLÍN",
+            "role": "Deisy Marulanda",
+            "icon": "img/hseq.png",
+            "color": "#778CA3",
+            "children": [
+              { "id": "alturas_med", "name": "WILSON SOTO", "role": "Coordinador de Alturas", "icon": "img/hseq.png", "color": "#20bf6b", "children": [] }
+            ]
+          },
+          {
+            "id": "insp_cali_sant",
+            "name": "INSPECTOR SST CALI / SANTANDER",
+            "role": "Elsa Villareal",
+            "icon": "img/hseq.png",
+            "color": "#778CA3",
+            "children": [
+              { "id": "alturas_cali", "name": "JHON BRISEÑO", "role": "Coordinador de Alturas", "icon": "img/hseq.png", "color": "#20bf6b", "children": [] }
+            ]
+          },
+          {
+            "id": "insp_norte",
+            "name": "INSPECTOR SST ZONA NORTE",
+            "role": "Laura Vanegas",
+            "icon": "img/hseq.png",
+            "color": "#778CA3",
+            "children": [
+              { "id": "alturas_norte", "name": "ALEX MOYA", "role": "Coordinador de Alturas", "icon": "img/hseq.png", "color": "#20bf6b", "children": [] }
+            ]
           }
         ]
       }
-    }
+    ]
+  }
+}
   ]
 }
