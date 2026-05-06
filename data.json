@@ -265,13 +265,11 @@
                 {
             "id": "zona_centro",
             "name": "DAVID MURILLO",
-            "role": "Coordinador Zona Centro",
+            "role": "Coordinador La Dorada",
             "icon": "img/coordinacion.png",
             "color": "#778CA3",
             "children": [
-              { "id": "c1_centro", "name": "CUADRILLA 1", "role": "Líder: Omar Torres", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] },
-              { "id": "c2_centro", "name": "CUADRILLA 2", "role": "Líder: Ruben Pestana", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] },
-              { "id": "c3_centro", "name": "CUADRILLA 3", "role": "Líder: Mauricio Sanchez", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] }
+              { "id": "c1_centro", "name": "SANTANDERES 2", "role": "Líder: Jose Perez", "icon": "img/cuadrilla.png", "color": "#FC5C65", "children": [] }
             ]
           },
           {
